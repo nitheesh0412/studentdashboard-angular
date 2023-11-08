@@ -1,0 +1,33 @@
+.example-button-row {
+  display: table-cell;
+  // max-width: 600px;
+}
+.Search{
+  padding: 2rem;
+}
+// .usertable{
+//   width: 30vw;
+// }
+.usertable {
+  width: 100%;
+}
+.example-button-row button,
+.example-button-row a {
+  margin-right: 5px;
+}
+.paginator {
+  display: flex;
+  justify-content: center;
+}
+
+
+ng-container{
+  padding: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .Search{
+    width: 75vw;
+  }
+}

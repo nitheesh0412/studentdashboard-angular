@@ -1,0 +1,43 @@
+<h1>
+  mark attendance
+</h1>
+
+<form [formGroup]="attendancedata">
+  <p>
+    <mat-form-field>
+      <mat-label>Select User</mat-label>
+      <mat-select formControlName="ids" [(value)]="selected">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let user of users" [value]="user.idNo">
+          {{user.name}}-{{user.idNo}}
+
+        </mat-option>
+      </mat-select>
+      <mat-error class="" *ngIf="attendancedata.get('ids')?.invalid">enter correct id</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="present">present</mat-option>
+        <mat-option value="absent">Absent</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <p>
+    <a routerLink="/dashboard">
+      <button mat-raised-button color="primary" [disabled]="!attendancedata.valid"
+        (click)="postattendance(attendancedata.value)">Submit</button>
+    </a>
+  </p>
+</form>

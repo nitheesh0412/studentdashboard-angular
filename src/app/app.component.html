@@ -1,0 +1,57 @@
+<!-- <app-sidebar></app-sidebar> -->
+<!-- <h1>app-sidebar</h1> -->
+<!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle>  -->
+<p hidden="true"> {{subscriptions }} </p>
+
+<mat-toolbar>
+  <div class="">
+    <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button> ALMS
+  </div>
+</mat-toolbar>
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')" (closed)="events.push('close!')"
+    class="sidenav pt-3">
+    <mat-list>
+      <mat-list-item><a routerLink="home">
+        <div class="d-flex ">
+          <div class="pe-1"><mat-icon>home</mat-icon></div>
+          <div>Home</div>
+        </div>
+      </a></mat-list-item>
+      <mat-list-item><a routerLink="dashboard">
+          <div class="d-flex ">
+            <div class="pe-1"><mat-icon>dashboard</mat-icon></div>
+            <div>Dashboard</div>
+          </div>
+        </a></mat-list-item>
+
+
+      <mat-list-item>
+        <a routerLink="adduser">
+          <div class="d-flex ">
+            <div class="pe-1"><mat-icon>account_circle</mat-icon></div>
+            <div>add student</div>
+          </div>
+        </a></mat-list-item>
+
+
+      <mat-list-item><a routerLink="markattendance">
+          <div class="d-flex ">
+            <div class="pe-1"><mat-icon>assignment_ind</mat-icon></div>
+            <div>mark-attendance</div>
+          </div>
+
+        </a></mat-list-item>
+
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenavconent ">
+    <router-outlet></router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

@@ -1,0 +1,35 @@
+mat-card{
+  width: 40vw;
+  height: 100%;
+}
+mat-form-field{
+  width: 30vw !important;
+  height: 10px !important;
+}
+p{
+  padding: 15px;
+}
+.userimg{
+  padding-left: 20px;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  mat-card{
+    width: 100vw;
+    height: 100%;
+    padding-top: 10px;
+
+  }
+  mat-form-field{
+    width: 60vw !important;
+    height: 8px !important;
+  }
+  p{
+    padding-bottom: 10px;
+    padding-left: 0px;
+  }
+  .userimg{
+    width: 300px;
+    padding-left: 10px;
+  }
+}

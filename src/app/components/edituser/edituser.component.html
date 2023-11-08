@@ -1,0 +1,57 @@
+<div class="container dialogedit">
+  <form [formGroup]="userData" class="container ps-5" >
+    <p>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="enter your name" formControlName="name">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field >
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error class="" *ngIf="userData.get('email')?.invalid">enter correct email</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>age</mat-label>
+        <input matInput type="number"
+        placeholder="enter your age"
+        formControlName="age">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>
+          mobile
+        </mat-label>
+        <input matInput 
+        placeholder="enter mobile number"
+        formControlName="mobile">
+        <mat-error class="" *ngIf="userData.get('mobile')?.invalid">should contain 10 digits</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field>
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        
+        <mat-error *ngIf="userData.get('password')?.invalid">password should contain atleast 8 characters</mat-error>
+      </mat-form-field>
+    </p>
+    <p>
+      <!-- <div mat-dialog-actions> -->
+        <a>
+          <button mat-raised-button color="primary"  [disabled]="!userData.valid"  (click)="postUser(userData.value)">submit</button>
+        </a>
+        <!-- <button mat-button (click)="onNoClick()">No Thanks</button>
+        <button mat-button [mat-dialog-close]="" cdkFocusInitial>Ok</button> -->
+      <!-- </div> -->
+      
+    </p>
+  </form>
+</div>
